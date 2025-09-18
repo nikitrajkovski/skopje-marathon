@@ -1,4 +1,4 @@
-import {Box, Button, TextField, Typography} from "@mui/material";
+import {Box, TextField, Typography} from "@mui/material";
 import {type ChangeEvent} from "react";
 
 type FilterProps = {
@@ -22,7 +22,6 @@ export const Filter = ({nameOfProp, value, onChange}: FilterProps) => {
         onChange={handleChange}
         sx={{width: 100}}
       />
-      <Button>Филтер</Button>
     </Box>
   )
 }

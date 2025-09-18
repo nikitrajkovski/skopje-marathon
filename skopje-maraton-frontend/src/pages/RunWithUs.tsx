@@ -53,9 +53,9 @@ export const RunWithUs = () => {
   }
 
   const filteredContestants = contestants?.filter(c => {
-    const filteredNames = nameFilter === "" || c.firstName.toLowerCase().includes(nameFilter.toLowerCase());
-    const filteredCategory = categoryFilter === "" || c.category.toLowerCase().includes(categoryFilter.toLowerCase());
-    return filteredNames || filteredCategory;
+    const filteredNames = nameFilter === "" || c.firstName.toLowerCase() === (nameFilter.toLowerCase());
+    const filteredCategory = categoryFilter === "" || c.category.toLowerCase() === (categoryFilter.toLowerCase());
+    return filteredNames && filteredCategory;
   })
 
   return (
