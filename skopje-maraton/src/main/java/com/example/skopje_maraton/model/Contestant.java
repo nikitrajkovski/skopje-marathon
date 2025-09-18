@@ -33,4 +33,8 @@ public class Contestant {
 
     @Column
     private Integer startingNum;
+
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 }

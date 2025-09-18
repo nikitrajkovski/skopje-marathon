@@ -8,23 +8,30 @@ import {AddParticipant} from "./pages/AddParticipant.tsx";
 import {StatusCheck} from "./pages/StatusCheck.tsx";
 import {Payment} from "./pages/Payment.tsx";
 import {RunWithUs} from "./pages/RunWithUs.tsx";
+import {Login} from "./pages/Login.tsx";
+import {AuthenticationProvider} from "./context/AuthenticationContext.tsx";
+import {Register} from "./pages/Register.tsx";
 
 export const App = () => {
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout/>}>
-      <Route index element={<HomePage/>} />
-      <Route path="allparticipants" element={<AllParticipants />} />
-      <Route path="addparticipant" element={<AddParticipant />} />
-      <Route path="checkstatus" element={<StatusCheck />} />
-      <Route path="payment/:registrationNum" element={<Payment />} />
-      <Route path="runwithus" element={<RunWithUs />} />
+      <Route index element={<HomePage/>}/>
+      <Route path="allparticipants" element={<AllParticipants/>}/>
+      <Route path="addparticipant" element={<AddParticipant/>}/>
+      <Route path="checkstatus" element={<StatusCheck/>}/>
+      <Route path="payment/:registrationNum" element={<Payment/>}/>
+      <Route path="runwithus" element={<RunWithUs/>}/>
+      <Route path="login" element={<Login/>}/>
+      <Route path="register" element={<Register/>}/>
     </Route>
   ))
 
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthenticationProvider>
+        <RouterProvider router={router}/>
+      </AuthenticationProvider>
     </>
   )
 }

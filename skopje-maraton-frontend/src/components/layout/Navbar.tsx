@@ -1,5 +1,7 @@
 import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
 import {Link, useLocation} from "react-router";
+import {useContext} from "react";
+import {AuthenticationContext} from "../../context/AuthenticationContext.tsx";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -8,6 +10,8 @@ export const Navbar = () => {
     {label: "Сите Учесници", href: "/allparticipants"},
     {label: "Трчај со нас", href: "/runwithus"},
   ];
+  const { token } = useContext(AuthenticationContext);
+
 
   return (
     <AppBar position="static" sx={{background: "#5e239d", color: "#f61067", height: "10vh", justifyContent: "center"}}>
@@ -40,6 +44,11 @@ export const Navbar = () => {
               Пријава на учесник
             </Button>
           </Link>
+          {!token && <Link to={"/login"}>
+            <Button variant="outlined" sx={{backgroundColor: "#f61067", color: "#f4f4ed", textTransform: "none"}}>
+              Најава
+            </Button>
+          </Link>}
         </Box>
       </Toolbar>
     </AppBar>
