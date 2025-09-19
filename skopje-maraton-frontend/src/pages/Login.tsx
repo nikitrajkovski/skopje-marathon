@@ -40,7 +40,7 @@ export const Login = () => {
       const data = await response.json();
       setToken(data.token);
       setAuthenticated(true);
-      setUser({email})
+      setUser(data.user);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);

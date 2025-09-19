@@ -5,7 +5,7 @@ import com.example.skopje_maraton.dto.RegisterUserDto;
 import com.example.skopje_maraton.model.User;
 import com.example.skopje_maraton.security.JwtService;
 import com.example.skopje_maraton.security.LoginResponse;
-import com.example.skopje_maraton.service.AuthenticationService;
+import com.example.skopje_maraton.service.implementation.AuthenticationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +40,7 @@ public class AuthenticationController {
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setToken(jwtToken);
         loginResponse.setExpiresIn(jwtService.getExpirationTime());
+        loginResponse.setUser(authenticatedUser);
 
         return ResponseEntity.ok(loginResponse);
     }

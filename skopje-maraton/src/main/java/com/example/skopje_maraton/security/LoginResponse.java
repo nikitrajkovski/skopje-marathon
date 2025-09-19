@@ -1,5 +1,6 @@
 package com.example.skopje_maraton.security;
 
+import com.example.skopje_maraton.model.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,4 +11,5 @@ public class LoginResponse {
 
     private long expiresIn;
 
+    private User user;
 }

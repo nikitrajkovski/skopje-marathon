@@ -1,4 +1,4 @@
-package com.example.skopje_maraton.service;
+package com.example.skopje_maraton.service.implementation;
 
 import com.example.skopje_maraton.dto.LoginUserDto;
 import com.example.skopje_maraton.dto.RegisterUserDto;
